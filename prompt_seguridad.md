@@ -34,7 +34,7 @@ El informe tiene dos partes: (A) vulnerabilidades conocidas y publicadas por la 
 
 ## Paso 2 (Parte B): Análisis del código propio
 
-1. Si semgrep está disponible, ejecútalo con reglas de seguridad: `semgrep scan --config p/csharp --config p/dockerfile --metrics=off --json -o "<ruta Semgrep indicada>"`, usando la ruta Semgrep indicada al final del prompt. Verifica la sintaxis con `semgrep --help`. Revisa sus resultados y descarta los falsos positivos evidentes, anotando cuáles descartaste y por qué.
+1. Si semgrep está disponible, ejecútalo con reglas de seguridad: `semgrep scan --config p/csharp --config p/dockerfile --config p/java --metrics=off --json -o "<ruta Semgrep indicada>"`, usando la ruta Semgrep indicada al final del prompt. Verifica la sintaxis con `semgrep --help`. Revisa sus resultados y descarta los falsos positivos evidentes, anotando cuáles descartaste y por qué.
 2. Si gitleaks está disponible, ejecútalo como `gitleaks detect --source . --no-banner --redact --report-format json --report-path "<ruta Gitleaks indicada>"`, usando la ruta Gitleaks indicada al final del prompt. No escribas el reporte en `/tmp`. Si no está disponible, busca patrones comunes (claves de API, tokens, cadenas de conexión, claves privadas) con grep, sin imprimir valores.
 3. Revisión manual enfocada en:
    - Inyección: SQL, comandos del sistema, XSS, SSTI, path traversal, SSRF, uso de eval o exec con datos externos.
